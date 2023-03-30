@@ -34,10 +34,10 @@ class MyWindow(tk.Tk):
         
         # Gridder - Placer  - Packer
         self.columnconfigure(0, weight=0)
-        self.columnconfigure(1, weight=0)
+        self.columnconfigure(1, weight=1)
         self.columnconfigure(2, weight=0)
         self.columnconfigure(3, weight=0)
-        self.rowconfigure(0, weight=0)
+        self.rowconfigure(0, weight=1)
         self.rowconfigure(1, weight=0)
 
         # Binding variables:
@@ -47,10 +47,10 @@ class MyWindow(tk.Tk):
         nameL=tk.Label(self, text="Name:")
         # Geometry Manager: placer, packer, gridder
         
-        nameL.grid(row=0, column=0, padx=10, pady=10, sticky=tk.E)
+        nameL.grid(row=0, column=0, padx=10, pady=10, sticky=tk.W+tk.E)
         
         nameE=tk.Entry(self, textvariable=self.nameStr)
-        nameE.grid(row=0, column=1, padx=10, pady=10, sticky=tk.E+tk.W+tk.S+tk.N)
+        nameE.grid(row=0, column=1, padx=10, pady=10, sticky=tk.E+tk.W)
         
         clickB=tk.Button(self, text="click", command=self.hello)
         clickB.grid(row=0, column=2, padx=10, pady=10)
@@ -67,6 +67,7 @@ class MyWindow(tk.Tk):
         self.setMenu()
         
     def setMenu(self):
+        
         import sys
         mainmenu = tk.Menu(self)  # MenuBar
          
